@@ -9,4 +9,14 @@ export class AppController {
   getHello(): string {
     return this.appService.getHello();
   }
+
+  @Get('queries/reviews')
+  getReviewsWithUserNamesAndBookTitles() {
+    return this.appService.getReviewsWithUserNamesAndBookTitles();
+  }
+
+  @Get('queries/books')
+  getBooksWithReviewCounts() {
+    return this.appService.getBooksWithReviewCounts();
+  }
 }
