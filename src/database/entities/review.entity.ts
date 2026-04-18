@@ -1,4 +1,5 @@
 import {
+  Check,
   Column,
   CreateDateColumn,
   Entity,
@@ -10,6 +11,7 @@ import { Book } from './book.entity';
 import { User } from './user.entity';
 
 @Entity({ name: 'reviews' })
+@Check(`"rating" >= 1 AND "rating" <= 5`)
 export class Review {
   @PrimaryGeneratedColumn()
   id: number;
@@ -19,6 +21,12 @@ export class Review {
 
   @Column({ name: 'book_id', type: 'int' })
   bookId: number;
+
+  @Column({ type: 'int' })
+  rating: number;
+
+  @Column({ type: 'text', nullable: true })
+  comment: string | null;
 
   @CreateDateColumn({ name: 'created_at', type: 'timestamp' })
   createdAt: Date;

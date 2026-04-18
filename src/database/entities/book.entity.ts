@@ -9,6 +9,12 @@ export class Book {
   @Column({ type: 'varchar', length: 255 })
   title: string;
 
+  @Column({ type: 'varchar', length: 255 })
+  author: string;
+
+  @Column({ name: 'published_year', type: 'int', nullable: true })
+  publishedYear: number | null;
+
   @CreateDateColumn({ name: 'created_at', type: 'timestamp' })
   createdAt: Date;
 
